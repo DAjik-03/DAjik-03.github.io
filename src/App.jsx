@@ -23,7 +23,15 @@ export default function App() {
         <section id="about" className="section hero-section">
           <div className="hero-grid">
             <div className="hero-copy">
-              <p className="eyebrow">Wellington-based / Data / Reporting / BI</p>
+  <div className="profile-photo-wrap">
+    <img
+      src="/profile.jpeg"
+      alt="Wonjik Kim profile"
+      className="profile-photo"
+    />
+  </div>
+
+  <p className="eyebrow">Wellington-based / Data / Reporting / BI</p>
 
               <h1>
                 Turning data into

@@ -56,7 +56,7 @@ export default function App() {
               </div>
 <div className="hero-actions">
   <a
-    href="/cv.pdf"
+    href="/cv.pdf?v=3"
     className="hero-button"
     target="_blank"
     rel="noreferrer"

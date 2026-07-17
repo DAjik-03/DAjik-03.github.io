@@ -25,6 +25,7 @@ const projects = [
       "KPI reporting, forecasting logic, business-facing reporting, handover material",
     why:
       "Shows that I can work with structured reporting logic, explain assumptions, and prepare documentation that others can understand and continue using.",
+    repo: "https://github.com/DAjik-03/Nestle-Forecasting-report",
     detail:
       "In this team project, I focused on Power BI prototyping and helped connect forecasting outputs to an interactive reporting workflow. I also supported data-loading checks and clear project communication. Product-level data, internal figures, and client files are not shown.",
   },
@@ -68,7 +69,7 @@ function ProjectCard({ project }) {
       </p>
 
       <div className="project-actions">
-        {project.repo ? (
+        {project.repo && (
           <a
             className="small-button"
             href={project.repo}
@@ -77,7 +78,8 @@ function ProjectCard({ project }) {
           >
             GitHub Repo
           </a>
-        ) : (
+        )}
+        {project.detail && (
           <details className="project-detail">
             <summary className="small-button secondary">View Summary</summary>
             <p>{project.detail}</p>

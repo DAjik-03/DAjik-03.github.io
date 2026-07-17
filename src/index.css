@@ -441,7 +441,9 @@ h2 {
 
 .project-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
+  gap: 10px;
   min-height: 41px;
   margin-top: auto;
   padding-top: 22px;

@@ -6,9 +6,13 @@ const projects = [
     summary:
       "A SQL and Power BI reporting workflow that helps non-technical users compare forecast outputs, spot issues, and understand the drivers behind changes.",
     evidence:
-      "Built from the AUT × Nestlé collaboration with clear assumptions, QA checks, and handover documentation.",
+      "Built from the AUT × Nestlé collaboration with clear assumptions, QA checks, handover documentation, and a privacy-sanitised portfolio view.",
     tools: ["SQL", "Power BI", "Forecasting", "Documentation"],
     repo: "https://github.com/DAjik-03/Nestle-Forecasting-report",
+    image: "/forecast-review-dashboard-sanitised.png",
+    imageAlt:
+      "Sanitised Power BI forecast review dashboard with KPI cards, product-category bars, and a monthly trend",
+    imageLabel: "Sanitised Power BI view",
   },
   {
     number: "02",
@@ -23,6 +27,7 @@ const projects = [
     image: "/road-safety-sql-monitoring.png",
     imageAlt:
       "Power BI SQL monitoring page with annual crash trends, quality-rule outcomes, and validation KPI cards",
+    imageLabel: "SQL-connected Power BI",
   },
   {
     number: "03",
@@ -34,6 +39,10 @@ const projects = [
       "Demonstrates practical KPI interpretation, data cleaning, visual review, and stakeholder-ready communication.",
     tools: ["Power BI", "Excel", "KPI Reporting", "Briefing"],
     repo: "https://github.com/DAjik-03/justice-sector-reporting-scenario",
+    image: "/justice-sector-power-bi.png",
+    imageAlt:
+      "Power BI briefing comparing public adult conviction-rate trends for Auckland and New Zealand",
+    imageLabel: "Public-data Power BI brief",
   },
 ]
 
@@ -72,7 +81,7 @@ function ProjectCard({ project }) {
       {project.image && (
         <div className="project-visual">
           <img src={project.image} alt={project.imageAlt} loading="lazy" />
-          <span>SQL-connected Power BI</span>
+          <span>{project.imageLabel}</span>
         </div>
       )}
 

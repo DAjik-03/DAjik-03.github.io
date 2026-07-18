@@ -1,378 +1,296 @@
 const projects = [
   {
-    id: "road-safety",
-    label: "Data Quality / Monitoring",
+    number: "01",
+    category: "Forecasting / BI",
+    title: "Forecast Review Dashboard",
+    summary:
+      "A SQL and Power BI reporting workflow that helps non-technical users compare forecast outputs, spot issues, and understand the drivers behind changes.",
+    evidence:
+      "Built from the AUT × Nestlé collaboration with clear assumptions, QA checks, and handover documentation.",
+    tools: ["SQL", "Power BI", "Forecasting", "Documentation"],
+    repo: "https://github.com/DAjik-03/Nestle-Forecasting-report",
+  },
+  {
+    number: "02",
+    category: "Data Quality / Monitoring",
     title: "NZ Road Safety Data Quality & Monitoring Review",
     summary:
-      "Validation-led project using NZ road safety data to check completeness, consistency, and reliability before producing monitoring-style reporting outputs.",
-    tools:
-      "SQL-style validation logic, Excel, Power BI / reporting view, GitHub documentation",
-    focus:
-      "Data quality, completeness checks, consistency review, monitoring, reporting caveats",
-    why:
-      "Shows that I can check data carefully before creating insights, document limitations, and prepare clearer reporting outputs for non-technical users.",
-    repo:
-      "https://github.com/DAjik-03/nz-road-safety-data-quality-monitoring",
+      "A validation-led review of public NZ road safety data, designed to establish whether the dataset is reliable enough for ongoing reporting.",
+    evidence:
+      "Checks completeness, consistency, and severity exceptions, then communicates limitations in plain English.",
+    tools: ["Data QA", "Excel", "Power BI", "Monitoring"],
+    repo: "https://github.com/DAjik-03/nz-road-safety-data-quality-monitoring",
   },
   {
-    id: "nestle",
-    label: "Forecasting / KPI Reporting",
-    title: "AUT × Nestlé Forecasting KPI Reporting Project",
+    number: "03",
+    category: "Public Sector / Reporting",
+    title: "Justice Sector Reporting Scenario",
     summary:
-      "Academic-industry collaboration focused on forecasting KPI reporting, Power BI-based assumptions, and clear handover documentation. Confidential business details are removed.",
-    tools: "Power BI, Excel, forecasting assumptions, documentation",
-    focus:
-      "KPI reporting, forecasting logic, business-facing reporting, handover material",
-    why:
-      "Shows that I can work with structured reporting logic, explain assumptions, and prepare documentation that others can understand and continue using.",
-    repo: "https://github.com/DAjik-03/Nestle-Forecasting-report",
-    detail:
-      "In this team project, I focused on Power BI prototyping and helped connect forecasting outputs to an interactive reporting workflow. I also supported data-loading checks and clear project communication. Product-level data, internal figures, and client files are not shown.",
+      "A self-developed analyst scenario that turns raw data into a concise briefing, clear visuals, and decision-focused reporting insights.",
+    evidence:
+      "Demonstrates practical KPI interpretation, data cleaning, visual review, and stakeholder-ready communication.",
+    tools: ["Power BI", "Excel", "KPI Reporting", "Briefing"],
+    repo: "https://github.com/DAjik-03/justice-sector-reporting-scenario",
+  },
+]
+
+const capabilities = [
+  {
+    label: "Query & validate",
+    title: "SQL + data quality",
+    text: "Extracting, reconciling, and checking data before analysis so reporting starts from a reliable base.",
   },
   {
-    id: "justice",
-    label: "Public Sector / Reporting Scenario",
-    title: "Justice Sector Reporting Scenario Project",
-    summary:
-      "Self-developed reporting project extended from a public-sector style analyst scenario. Focused on turning raw data into a short briefing, clear visuals, and practical reporting insights.",
-    tools: "Power BI, Excel, data cleaning, briefing documentation",
-    focus:
-      "Public-sector reporting, KPI interpretation, visual summary, stakeholder briefing",
-    why:
-      "Shows that I can prepare a clear analyst-style output under realistic reporting conditions and communicate findings in a simple, decision-focused way.",
-    detail:
-      "This is a self-developed portfolio scenario, not professional employment. The work is structured around the type of concise reporting, visual review, and plain-English briefing expected in a public-sector analyst setting.",
+    label: "Build & explain",
+    title: "Power BI + Excel",
+    text: "Creating practical dashboards, recurring reports, and tracking views that make key movements easier to understand.",
+  },
+  {
+    label: "Hand over clearly",
+    title: "Documentation",
+    text: "Writing assumptions, caveats, and process notes so non-technical users can trust and continue the work.",
   },
 ]
 
 function ProjectCard({ project }) {
   return (
-    <article className="project-card" id={`${project.id}-project`}>
-      <p className="card-label">{project.label}</p>
+    <a
+      className="project-card"
+      href={project.repo}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`${project.title} GitHub repository`}
+    >
+      <div className="project-card-top">
+        <span className="project-number">{project.number}</span>
+        <span className="project-category">{project.category}</span>
+      </div>
+
       <h3>{project.title}</h3>
       <p className="project-summary">{project.summary}</p>
+      <p className="project-evidence">{project.evidence}</p>
 
-      <div className="project-meta">
-        <p>
-          <span>Tools</span>
-          {project.tools}
-        </p>
-        <p>
-          <span>Focus</span>
-          {project.focus}
-        </p>
-      </div>
+      <ul className="tool-list" aria-label="Tools and focus areas">
+        {project.tools.map((tool) => (
+          <li key={tool}>{tool}</li>
+        ))}
+      </ul>
 
-      <p className="project-why">
-        <span>Why it matters</span>
-        {project.why}
-      </p>
-
-      <div className="project-actions">
-        {project.repo && (
-          <a
-            className="small-button"
-            href={project.repo}
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub Repo
-          </a>
-        )}
-        {project.detail && (
-          <details className="project-detail">
-            <summary className="small-button secondary">View Summary</summary>
-            <p>{project.detail}</p>
-          </details>
-        )}
-      </div>
-    </article>
+      <span className="project-link">
+        View project on GitHub <span aria-hidden="true">↗</span>
+      </span>
+    </a>
   )
 }
 
 export default function App() {
   return (
     <div className="site-shell">
-      <header className="navbar">
-        <a className="brand-wrap" href="#about" aria-label="Wonjik Kim — back to top">
-          <div className="brand-mark" aria-hidden="true">WK</div>
-          <div className="brand-text">
-            <span className="brand-name">Wonjik Kim</span>
-            <span className="brand-role">Junior Analyst Portfolio</span>
-          </div>
+      <header className="site-header">
+        <a className="brand" href="#top" aria-label="Wonjik Kim - back to top">
+          <span className="brand-mark" aria-hidden="true">WK</span>
+          <span>
+            <strong>Wonjik Kim</strong>
+            <small>Reporting / Data Analyst</small>
+          </span>
         </a>
 
         <nav className="nav-links" aria-label="Primary navigation">
-          <a href="#about">About</a>
           <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
           <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
+          <a href="#capabilities">Skills</a>
+          <a className="nav-contact" href="#contact">Contact</a>
         </nav>
       </header>
 
-      <main>
-        <section id="about" className="section hero-section">
-          <div className="hero-grid">
-            <div className="hero-copy">
-              <div className="profile-photo-wrap">
-                <img
-                  src="/profile.jpeg"
-                  alt="Wonjik Kim"
-                  className="profile-photo"
-                />
+      <main id="top">
+        <section className="hero section" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <p className="eyebrow">Wellington, New Zealand · Open to opportunities</p>
+            <h1 id="hero-title">
+              I turn raw data into
+              <span> clear, reliable reporting.</span>
+            </h1>
+            <p className="hero-intro">
+              Graduate reporting and data analyst focused on SQL, Power BI,
+              Excel, and data quality. I build practical reporting outputs and
+              explain findings clearly to the people who use them.
+            </p>
+
+            <div className="hero-actions">
+              <a className="button button-primary" href="#projects">
+                Explore my work
+              </a>
+              <a
+                className="button button-secondary"
+                href="/cv.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View CV <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <dl className="hero-facts" aria-label="Candidate highlights">
+              <div>
+                <dt>Core tools</dt>
+                <dd>SQL · Power BI · Excel</dd>
               </div>
-
-              <p className="eyebrow">
-                Wellington-based / Junior Data / Reporting / BI
-              </p>
-
-              <h1>
-                Junior data analyst
-                <br />
-                focused on reporting,
-                <br />
-                dashboards and data quality
-              </h1>
-
-              <p className="hero-text">
-                Recent Data Science graduate targeting junior Data Analyst,
-                Reporting Analyst, BI Analyst, Data Quality Analyst, and Data
-                Specialist roles. Strongest tools: SQL, Power BI, and Excel.
-                Full-time work rights in New Zealand. No sponsorship required.
-              </p>
-
-              <div className="hero-tags" aria-label="Core skills">
-                <span>SQL</span>
-                <span>Power BI</span>
-                <span>Excel</span>
-                <span>Data Quality</span>
-                <span>Reporting</span>
-                <span>Documentation</span>
+              <div>
+                <dt>Focus</dt>
+                <dd>Reporting · BI · Data quality</dd>
               </div>
+              <div>
+                <dt>Work status</dt>
+                <dd>Full NZ work rights</dd>
+              </div>
+            </dl>
+          </div>
 
-              <div className="hero-actions">
-                <a
-                  href="/cv.pdf?v=3"
-                  className="hero-button"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View CV
+          <aside className="profile-card" aria-label="About Wonjik Kim">
+            <div className="profile-image-wrap">
+              <img src="/profile.jpeg" alt="Wonjik Kim" className="profile-image" />
+              <span className="availability-badge">
+                <span aria-hidden="true"></span> Available for full-time roles
+              </span>
+            </div>
+
+            <div className="profile-copy">
+              <p className="section-label">Candidate snapshot</p>
+              <h2>Careful with the data. Clear with the story.</h2>
+              <p>
+                Recent New Zealand Data Science graduate with hands-on project
+                experience in validation, dashboards, KPI reporting, and
+                stakeholder-friendly documentation.
+              </p>
+              <div className="profile-links">
+                <a href="https://github.com/DAjik-03" target="_blank" rel="noreferrer">
+                  GitHub <span aria-hidden="true">↗</span>
                 </a>
-                <a href="#projects" className="hero-button secondary">
-                  See Projects
+                <a href="https://www.linkedin.com/in/wonjikkim" target="_blank" rel="noreferrer">
+                  LinkedIn <span aria-hidden="true">↗</span>
                 </a>
               </div>
             </div>
-
-            <aside className="hero-panel" aria-label="Candidate summary">
-              <div className="summary-card large">
-                <p className="summary-label">RECRUITER SNAPSHOT</p>
-                <h2>Ready for junior data and reporting work</h2>
-                <p>
-                  Practical project evidence in validation, dashboards, KPI
-                  reporting, and documentation for non-technical users.
-                </p>
-
-                <dl className="snapshot-list">
-                  <div>
-                    <dt>Based</dt>
-                    <dd>Wellington, New Zealand</dd>
-                  </div>
-                  <div>
-                    <dt>Strongest tools</dt>
-                    <dd>SQL, Power BI, Excel</dd>
-                  </div>
-                  <div>
-                    <dt>Work status</dt>
-                    <dd>Full-time NZ work rights</dd>
-                  </div>
-                  <div>
-                    <dt>Sponsorship</dt>
-                    <dd>Not required</dd>
-                  </div>
-                </dl>
-              </div>
-
-              <div className="mini-card-grid">
-                <article className="summary-card">
-                  <p className="summary-label">REPORTING</p>
-                  <h3>KPI thinking</h3>
-                  <p>Clear recurring outputs and practical decision support.</p>
-                </article>
-
-                <article className="summary-card">
-                  <p className="summary-label">DATA QUALITY</p>
-                  <h3>Check first</h3>
-                  <p>Completeness, consistency, caveats, and reliable outputs.</p>
-                </article>
-
-                <article className="summary-card">
-                  <p className="summary-label">DOCUMENTATION</p>
-                  <h3>Easy handover</h3>
-                  <p>Assumptions and limitations written for continued use.</p>
-                </article>
-
-                <article className="summary-card">
-                  <p className="summary-label">COMMUNICATION</p>
-                  <h3>Plain English</h3>
-                  <p>Analysis translated for non-technical stakeholders.</p>
-                </article>
-              </div>
-            </aside>
-          </div>
+          </aside>
         </section>
 
-        <section id="projects" className="section">
+        <section id="projects" className="section projects-section" aria-labelledby="projects-title">
           <div className="section-heading">
-            <p className="section-kicker">Portfolio</p>
-            <h2>Featured Projects</h2>
-            <p className="section-intro">
-              Project evidence in data quality, reporting, dashboards,
-              documentation, and stakeholder-facing analysis.
+            <div>
+              <p className="section-label">Selected work</p>
+              <h2 id="projects-title">Projects built for real reporting needs.</h2>
+            </div>
+            <p>
+              Each project shows how I approach a different part of the analyst
+              workflow: validating the source, shaping the reporting, and
+              communicating what matters.
             </p>
           </div>
 
           <div className="project-grid">
             {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <ProjectCard key={project.number} project={project} />
             ))}
           </div>
         </section>
 
-        <section id="skills" className="section">
-          <div className="section-heading">
-            <p className="section-kicker">Capability</p>
-            <h2>Skills</h2>
+        <section id="experience" className="section experience-section" aria-labelledby="experience-title">
+          <div className="section-heading compact-heading">
+            <div>
+              <p className="section-label">Experience</p>
+              <h2 id="experience-title">Analysis grounded in practical work.</h2>
+            </div>
           </div>
 
-          <div className="card-grid">
-            <article className="card">
-              <p className="card-label">Core Tools</p>
-              <h3>SQL / Power BI / Excel</h3>
-              <p>
-                My strongest day-to-day tools for querying, validation,
-                dashboard development, and practical reporting work.
-              </p>
+          <div className="timeline">
+            <article className="timeline-item">
+              <div className="timeline-meta">
+                <p>Mar 2025 - Nov 2025</p>
+                <span>AUT × Nestlé</span>
+              </div>
+              <div className="timeline-content">
+                <p className="role-type">Industry collaboration</p>
+                <h3>Project Team Lead / Analyst</h3>
+                <p>
+                  Analysed product sales data, built Power BI reporting views,
+                  and explained forecast movements to non-technical stakeholders.
+                  Coordinated a three-person development stream within a
+                  six-person team and maintained clear handover documentation.
+                </p>
+              </div>
             </article>
 
-            <article className="card">
-              <p className="card-label">Analysis</p>
-              <h3>Reporting / Dashboarding / Data QA</h3>
-              <p>
-                KPI interpretation, structured checks, clear visuals, and
-                outputs that are easy for others to review.
-              </p>
-            </article>
-
-            <article className="card">
-              <p className="card-label">Additional Tools</p>
-              <h3>Python / R / GitHub / Quarto</h3>
-              <p>
-                Supporting tools for analysis, version control, and documented
-                project work when the task calls for them.
-              </p>
-            </article>
-
-            <article className="card">
-              <p className="card-label">Working Style</p>
-              <h3>Documentation / Communication</h3>
-              <p>
-                Careful written logic, reporting caveats, and plain-English
-                communication for non-technical stakeholders.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section id="experience" className="section">
-          <div className="section-heading">
-            <p className="section-kicker">Background</p>
-            <h2>Experience</h2>
-          </div>
-
-          <div className="card-grid experience-grid">
-            <article className="card">
-              <p className="card-label">Academic-industry Collaboration</p>
-              <h3>AUT × Nestlé project</h3>
-              <p>
-                Contributed to Power BI prototyping, forecasting-oriented
-                reporting, data checks, documentation, and team communication
-                in a structured academic project.
-              </p>
-            </article>
-
-            <article className="card">
-              <p className="card-label">Operations Support</p>
-              <h3>Reservations &amp; inventory assistant</h3>
-              <p>
-                Seasonal operational work involving accurate tracking,
-                coordination, customer communication, and day-to-day booking
-                and inventory detail.
-              </p>
-            </article>
-
-            <article className="card">
-              <p className="card-label">Customer-facing Work</p>
-              <h3>Front-of-house experience</h3>
-              <p>
-                Developed responsiveness, attention to detail, and confidence
-                communicating with different people in fast-moving environments.
-              </p>
+            <article className="timeline-item">
+              <div className="timeline-meta">
+                <p>Nov 2023 - Feb 2025</p>
+                <span>Hotel Pearly Plus</span>
+              </div>
+              <div className="timeline-content">
+                <p className="role-type">Seasonal operations</p>
+                <h3>Reservations & Inventory Assistant</h3>
+                <p>
+                  Managed Excel-based waitlists and inventory tracking, checked
+                  operational records for inconsistencies, and improved working
+                  templates to reduce avoidable errors during high-volume periods.
+                </p>
+              </div>
             </article>
           </div>
         </section>
 
-        <section id="contact" className="section contact-section">
-          <div className="section-heading">
-            <p className="section-kicker">Connect</p>
-            <h2>Contact</h2>
-            <p className="section-intro">
-              Open to full-time junior data, reporting, BI, data quality, and
-              data specialist opportunities in New Zealand.
+        <section id="capabilities" className="section capability-section" aria-labelledby="capabilities-title">
+          <div className="section-heading compact-heading">
+            <div>
+              <p className="section-label">How I work</p>
+              <h2 id="capabilities-title">Reliable analysis, useful outputs.</h2>
+            </div>
+          </div>
+
+          <div className="capability-grid">
+            {capabilities.map((capability) => (
+              <article className="capability-card" key={capability.title}>
+                <p>{capability.label}</p>
+                <h3>{capability.title}</h3>
+                <span>{capability.text}</span>
+              </article>
+            ))}
+          </div>
+
+          <div className="skills-line" aria-label="Additional tools">
+            <span>Additional tools</span>
+            <p>Python · R · GitHub · Quarto · Forecasting · Data modelling</p>
+          </div>
+        </section>
+
+        <section id="contact" className="section contact-section" aria-labelledby="contact-title">
+          <div>
+            <p className="section-label">Let&apos;s connect</p>
+            <h2 id="contact-title">Looking for a thoughtful junior analyst?</h2>
+            <p>
+              I am open to full-time reporting, BI, data quality, and data
+              analyst opportunities across New Zealand. No sponsorship required.
             </p>
           </div>
-
-          <div className="card contact-card">
-            <div>
-              <span>Location</span>
-              <p>Wellington, New Zealand</p>
-            </div>
-            <div>
-              <span>Work rights</span>
-              <p>Full-time NZ work rights — no sponsorship required</p>
-            </div>
-            <div>
-              <span>LinkedIn</span>
-              <a
-                href="https://www.linkedin.com/in/wonjikkim"
-                target="_blank"
-                rel="noreferrer"
-              >
-                linkedin.com/in/wonjikkim
-              </a>
-            </div>
-            <div>
-              <span>GitHub</span>
-              <a
-                href="https://github.com/DAjik-03"
-                target="_blank"
-                rel="noreferrer"
-              >
-                github.com/DAjik-03
-              </a>
-            </div>
-            <div>
-              <span>Email</span>
-              <a href="mailto:dajik03@outlook.com">dajik03@outlook.com</a>
-            </div>
+          <div className="contact-actions">
+            <a className="button button-light" href="mailto:dajik03@outlook.com">
+              dajik03@outlook.com
+            </a>
+            <a
+              className="contact-link"
+              href="https://www.linkedin.com/in/wonjikkim"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </section>
       </main>
 
       <footer className="footer">
-        <p>Wonjik Kim · Junior Data / Reporting Analyst Portfolio</p>
+        <p>© 2026 Wonjik Kim</p>
+        <p>Graduate Reporting / Data Analyst · Wellington, New Zealand</p>
       </footer>
     </div>
   )

@@ -15,10 +15,10 @@ const projects = [
     category: "Data Quality / Monitoring",
     title: "NZ Road Safety Data Quality & Monitoring Review",
     summary:
-      "A validation-led review of public NZ road safety data, designed to establish whether the dataset is reliable enough for ongoing reporting.",
+      "Validated 913,464 NZ road safety records and built a DuckDB SQL reporting layer for repeatable monitoring and Power BI use.",
     evidence:
-      "Checks completeness, consistency, and severity exceptions, then communicates limitations in plain English.",
-    tools: ["Data QA", "Excel", "Power BI", "Monitoring"],
+      "Implements 12 quality rules, 8 reporting views, and 12 passing release tests with exact R-SQL reconciliation.",
+    tools: ["SQL", "DuckDB", "Power BI", "Data Quality"],
     repo: "https://github.com/DAjik-03/nz-road-safety-data-quality-monitoring",
   },
   {

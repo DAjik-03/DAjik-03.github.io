@@ -15,11 +15,14 @@ const projects = [
     category: "Data Quality / Monitoring",
     title: "NZ Road Safety Data Quality & Monitoring Review",
     summary:
-      "Validated 913,464 NZ road safety records and built a DuckDB SQL reporting layer for repeatable monitoring and Power BI use.",
+      "Validated 913,464 NZ road safety records and connected a reproducible DuckDB SQL handoff to a Power BI monitoring page.",
     evidence:
-      "Implements 12 quality rules, 8 reporting views, and 12 passing release tests with exact R-SQL reconciliation.",
+      "12 quality rules, 8 reporting views, exact R-SQL reconciliation, 12/12 release tests, and data-backed monitoring KPIs.",
     tools: ["SQL", "DuckDB", "Power BI", "Data Quality"],
     repo: "https://github.com/DAjik-03/nz-road-safety-data-quality-monitoring",
+    image: "/road-safety-sql-monitoring.png",
+    imageAlt:
+      "Power BI SQL monitoring page with annual crash trends, quality-rule outcomes, and validation KPI cards",
   },
   {
     number: "03",
@@ -65,6 +68,13 @@ function ProjectCard({ project }) {
         <span className="project-number">{project.number}</span>
         <span className="project-category">{project.category}</span>
       </div>
+
+      {project.image && (
+        <div className="project-visual">
+          <img src={project.image} alt={project.imageAlt} loading="lazy" />
+          <span>SQL-connected Power BI</span>
+        </div>
+      )}
 
       <h3>{project.title}</h3>
       <p className="project-summary">{project.summary}</p>

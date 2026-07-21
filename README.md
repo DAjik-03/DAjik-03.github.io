@@ -1,3 +1,3 @@
 # Wonjik Kim Portfolio
 
-Personal analyst portfolio website built with React and Vite.
+Personal analyst portfolio website.

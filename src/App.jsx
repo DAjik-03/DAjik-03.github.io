@@ -1,18 +1,18 @@
 const projects = [
   {
     number: "01",
-    category: "Forecasting / BI",
-    title: "Forecast Review Dashboard",
+    category: "Service Operations / SQL",
+    title: "Service Operations & SLA Performance Analytics",
     summary:
-      "A SQL and Power BI reporting workflow that helps non-technical users compare forecast outputs, spot issues, and understand the drivers behind changes.",
+      "Modelled 60,000 synthetic service cases from six relational tables into a SQL Server star schema, then built a two-page Power BI decision dashboard and Excel controls.",
     evidence:
-      "Built from the AUT × Nestlé collaboration with clear assumptions, QA checks, handover documentation, and a privacy-sanitised portfolio view.",
-    tools: ["SQL", "Power BI", "Forecasting", "Documentation"],
-    repo: "https://github.com/DAjik-03/Nestle-Forecasting-report",
-    image: "/forecast-review-dashboard-sanitised.png",
+      "Found 173 overdue Billing cases, traced 172 to Payment Verification, and recommended process and routing controls before broad staffing. All 72 team-month backlog balances reconciled.",
+    tools: ["SQL Server", "Power BI", "Excel", "Star Schema"],
+    repo: "https://github.com/DAjik-03/service-operations-sla-analytics",
+    image: "/service-operations-sla-dashboard.png",
     imageAlt:
-      "Sanitised Power BI forecast review dashboard with KPI cards, product-category bars, and a monthly trend",
-    imageLabel: "Sanitised Power BI view",
+      "Service operations dashboard preview showing Billing Operations root-cause metrics and Payment Verification backlog evidence",
+    imageLabel: "SLA root-cause dashboard",
   },
   {
     number: "02",
@@ -49,8 +49,8 @@ const projects = [
 const capabilities = [
   {
     label: "Query & validate",
-    title: "SQL + data quality",
-    text: "Extracting, reconciling, and checking data before analysis so reporting starts from a reliable base.",
+    title: "SQL + data modelling",
+    text: "Joining operational sources, defining reliable metrics, and shaping star schemas so reporting starts from a controlled base.",
   },
   {
     label: "Build & explain",
@@ -132,8 +132,8 @@ export default function App() {
             </h1>
             <p className="hero-intro">
               Graduate reporting and data analyst focused on SQL, Power BI,
-              Excel, and data quality. I build practical reporting outputs and
-              explain findings clearly to the people who use them.
+              Excel, and operational analytics. I build practical reporting
+              outputs and explain findings clearly to the people who use them.
             </p>
 
             <div className="hero-actions">
@@ -157,7 +157,7 @@ export default function App() {
               </div>
               <div>
                 <dt>Focus</dt>
-                <dd>Reporting · BI · Data quality</dd>
+                <dd>Operations · BI · Data quality</dd>
               </div>
               <div>
                 <dt>Work status</dt>
@@ -179,8 +179,8 @@ export default function App() {
               <h2>Careful with the data. Clear with the story.</h2>
               <p>
                 Recent New Zealand Data Science graduate with hands-on project
-                experience in validation, dashboards, KPI reporting, and
-                stakeholder-friendly documentation.
+                experience in relational modelling, validation, dashboards,
+                KPI reporting, and stakeholder-friendly documentation.
               </p>
               <div className="profile-links">
                 <a href="https://github.com/DAjik-03" target="_blank" rel="noreferrer">
@@ -240,21 +240,6 @@ export default function App() {
               </div>
             </article>
 
-            <article className="timeline-item">
-              <div className="timeline-meta">
-                <p>Nov 2023 - Feb 2025</p>
-                <span>Hotel Pearly Plus</span>
-              </div>
-              <div className="timeline-content">
-                <p className="role-type">Seasonal operations</p>
-                <h3>Reservations & Inventory Assistant</h3>
-                <p>
-                  Managed Excel-based waitlists and inventory tracking, checked
-                  operational records for inconsistencies, and improved working
-                  templates to reduce avoidable errors during high-volume periods.
-                </p>
-              </div>
-            </article>
           </div>
         </section>
 
@@ -278,7 +263,7 @@ export default function App() {
 
           <div className="skills-line" aria-label="Additional tools">
             <span>Additional tools</span>
-            <p>Python · R · GitHub · Quarto · Forecasting · Data modelling</p>
+            <p>Python · R · GitHub · Quarto · Forecasting · Star-schema modelling</p>
           </div>
         </section>
 

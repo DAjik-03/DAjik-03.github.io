@@ -1,6 +1,21 @@
 const projects = [
   {
     number: "01",
+    category: "Electricity Market / Analytics",
+    title: "NZ Electricity Market Analytics",
+    summary:
+      "Built a PostgreSQL and SQL analytics workflow from official Electricity Authority data covering 17,520 half-hour intervals and 71.8M reconciled-volume rows, then delivered a validated five-page Power BI report.",
+    evidence:
+      "29 data-quality rules, fixed-P99 event analysis, and 88 half-hours of regional pressure not captured by the National P99 indicator.",
+    tools: ["PostgreSQL", "SQL", "Power BI", "Data Quality"],
+    repo: "https://github.com/DAjik-03/nz-electricity-market-analytics",
+    image: "/nz-electricity-market-executive.jpg",
+    imageAlt:
+      "NZ Electricity Market Analytics Power BI Executive Market Monitor showing price, event and regional monitoring metrics",
+    imageLabel: "Electricity market monitor",
+  },
+  {
+    number: "02",
     category: "Service Operations / SQL",
     title: "Service Operations & SLA Performance Analytics",
     summary:
@@ -15,7 +30,7 @@ const projects = [
     imageLabel: "SLA root-cause dashboard",
   },
   {
-    number: "02",
+    number: "03",
     category: "Data Quality / Monitoring",
     title: "NZ Road Safety Data Quality & Monitoring Review",
     summary:
@@ -29,28 +44,13 @@ const projects = [
       "Power BI SQL monitoring page with annual crash trends, quality-rule outcomes, and validation KPI cards",
     imageLabel: "SQL-connected Power BI",
   },
-  {
-    number: "03",
-    category: "Public Sector / Reporting",
-    title: "Justice Sector Reporting Scenario",
-    summary:
-      "A self-developed analyst scenario that turns raw data into a concise briefing, clear visuals, and decision-focused reporting insights.",
-    evidence:
-      "Demonstrates practical KPI interpretation, data cleaning, visual review, and stakeholder-ready communication.",
-    tools: ["Power BI", "Excel", "KPI Reporting", "Briefing"],
-    repo: "https://github.com/DAjik-03/justice-sector-reporting-scenario",
-    image: "/justice-sector-power-bi.png",
-    imageAlt:
-      "Power BI briefing comparing public adult conviction-rate trends for Auckland and New Zealand",
-    imageLabel: "Public-data Power BI brief",
-  },
 ]
 
 const capabilities = [
   {
     label: "Query & validate",
-    title: "SQL + data modelling",
-    text: "Joining operational sources, defining reliable metrics, and shaping star schemas so reporting starts from a controlled base.",
+    title: "SQL / PostgreSQL + data modelling",
+    text: "Joining and modelling complex sources, defining reliable metrics, and shaping analytical structures so reporting starts from a controlled and traceable base.",
   },
   {
     label: "Build & explain",
@@ -131,9 +131,10 @@ export default function App() {
               <span> clear, reliable reporting.</span>
             </h1>
             <p className="hero-intro">
-              Graduate reporting and data analyst focused on SQL, Power BI,
-              Excel, and operational analytics. I build practical reporting
-              outputs and explain findings clearly to the people who use them.
+              Graduate data and reporting analyst focused on SQL, PostgreSQL,
+              Power BI and Excel. I build reliable analytical workflows, validate
+              the underlying data and turn complex results into clear reporting
+              for decision-makers.
             </p>
 
             <div className="hero-actions">
@@ -153,7 +154,7 @@ export default function App() {
             <dl className="hero-facts" aria-label="Candidate highlights">
               <div>
                 <dt>Core tools</dt>
-                <dd>SQL · Power BI · Excel</dd>
+                <dd>SQL · PostgreSQL · Power BI · Excel</dd>
               </div>
               <div>
                 <dt>Focus</dt>
@@ -178,9 +179,9 @@ export default function App() {
               <p className="section-label">Candidate snapshot</p>
               <h2>Careful with the data. Clear with the story.</h2>
               <p>
-                Recent New Zealand Data Science graduate with hands-on project
-                experience in relational modelling, validation, dashboards,
-                KPI reporting, and stakeholder-friendly documentation.
+                Recent New Zealand Data Science graduate with hands-on experience
+                in SQL and PostgreSQL modelling, data-quality validation, Power BI
+                reporting, KPI design and stakeholder-friendly documentation.
               </p>
               <div className="profile-links">
                 <a href="https://github.com/DAjik-03" target="_blank" rel="noreferrer">
@@ -263,7 +264,7 @@ export default function App() {
 
           <div className="skills-line" aria-label="Additional tools">
             <span>Additional tools</span>
-            <p>Python · R · GitHub · Quarto · Forecasting · Star-schema modelling</p>
+            <p>Python · R · Git/GitHub · DuckDB · Forecasting · Star-schema modelling</p>
           </div>
         </section>
 
